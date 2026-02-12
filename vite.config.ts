@@ -6,6 +6,8 @@ import { VitePWA } from "vite-plugin-pwa";
 
 // Base path for GitHub Pages subdirectory and standalone (Home Screen) mode
 const base = process.env.VITE_BASE_PATH || "/";
+// Absolute origin for PWA start_url (so Home Screen opens full URL, not root)
+const origin = process.env.VITE_APP_ORIGIN || "";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -32,7 +34,8 @@ export default defineConfig(({ mode }) => ({
         display: "standalone",
         orientation: "portrait",
         scope: base,
-        start_url: `${base.replace(/\/$/, "")}/index.html`,
+        // Absolute URL so iOS Home Screen opens /time-weather-buddy/, not root
+        start_url: origin ? `${origin}${base.replace(/\/$/, "")}/index.html` : `${base.replace(/\/$/, "")}/index.html`,
         icons: [
           {
             src: `${base}favicon.ico`,

@@ -34,6 +34,8 @@ jobs:
         env:
           # Base path for GitHub Pages (repo name)
           VITE_BASE_PATH: /time-weather-buddy/
+          # Absolute origin so PWA start_url is full URL (fixes Home Screen opening root)
+          VITE_APP_ORIGIN: https://alexander86t.github.io
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
