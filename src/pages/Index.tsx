@@ -29,34 +29,34 @@ const Index = () => {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background gap-16">
+    <div className="flex min-h-screen items-center justify-center bg-background gap-20">
       <button
         onClick={handleClock}
-        className={`group flex flex-col items-center gap-4 transition-all duration-300 ${
-          activeButton === "clock" ? "scale-110" : "hover:scale-105"
+        className={`group flex flex-col items-center gap-6 transition-all duration-300 ${
+          activeButton === "clock" ? "scale-105" : "hover:scale-105"
         }`}
       >
-        <div className={`rounded-full border-2 border-muted p-8 transition-all duration-300 group-hover:border-primary group-hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)] ${
-          activeButton === "clock" ? "border-primary shadow-[0_0_40px_hsl(var(--primary)/0.4)]" : ""
+        <div className={`rounded-full border-4 border-white bg-white p-12 shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:shadow-white/20 ${
+          activeButton === "clock" ? "shadow-xl shadow-white/30 ring-4 ring-white/50" : ""
         }`}>
-          <Clock size={64} className="text-muted-foreground transition-colors group-hover:text-primary" />
+          <Clock size={96} className="text-neutral-800 transition-colors group-hover:text-neutral-900" strokeWidth={2} />
         </div>
-        <span className="text-sm text-muted-foreground transition-colors group-hover:text-foreground">Время</span>
+        <span className="text-2xl font-semibold text-white">Время</span>
       </button>
 
       <button
         onClick={handleWeather}
         disabled={loading}
-        className={`group flex flex-col items-center gap-4 transition-all duration-300 ${
-          activeButton === "weather" ? "scale-110" : "hover:scale-105"
+        className={`group flex flex-col items-center gap-6 transition-all duration-300 ${
+          activeButton === "weather" ? "scale-105" : "hover:scale-105"
         } ${loading ? "opacity-60 cursor-wait" : ""}`}
       >
-        <div className={`rounded-full border-2 border-muted p-8 transition-all duration-300 group-hover:border-primary group-hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)] ${
-          activeButton === "weather" ? "border-primary shadow-[0_0_40px_hsl(var(--primary)/0.4)]" : ""
+        <div className={`rounded-full border-4 border-white bg-white p-12 shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:shadow-white/20 ${
+          activeButton === "weather" ? "shadow-xl shadow-white/30 ring-4 ring-white/50" : ""
         }`}>
-          <CloudSun size={64} className="text-muted-foreground transition-colors group-hover:text-primary" />
+          <CloudSun size={96} className="text-neutral-800 transition-colors group-hover:text-neutral-900" strokeWidth={2} />
         </div>
-        <span className="text-sm text-muted-foreground transition-colors group-hover:text-foreground">
+        <span className="text-2xl font-semibold text-white">
           {loading ? "Загрузка..." : "Погода"}
         </span>
       </button>
